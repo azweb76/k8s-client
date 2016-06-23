@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/azweb76/k8s-client/issues"
   },
-  "author": "",
+  "author": "lunik",
   "dependencies": {
     "async": "~0.2.9",
     "form-data": "~0.1.0",
