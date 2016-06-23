@@ -1,5 +1,5 @@
 {
-  "name": "k8s-cli",
+  "name": "k8s-client",
   "version": "0.0.3+sha-testsha",
   "description": "Kubernetes client for Node.js",
   "main": "index.js",
@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/azweb76/k8s-client/issues"
   },
-  "author": "lunik",
+  "author": "dclayton",
   "dependencies": {
     "async": "~0.2.9",
     "form-data": "~0.1.0",
