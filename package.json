@@ -14,11 +14,11 @@
     "kubernetes",
     "k8s"
   ],
+  "author": "dclayton",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/azweb76/k8s-client/issues"
   },
-  "author": "dclayton",
   "dependencies": {
     "async": "~0.2.9",
     "form-data": "~0.1.0",
