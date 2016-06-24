@@ -1,6 +1,6 @@
 {
   "name": "k8s-client",
-  "version": "0.0.3+sha-testsha",
+  "version": "0.0.4",
   "description": "Kubernetes client for Node.js",
   "main": "index.js",
   "repository": {
