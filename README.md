@@ -27,6 +27,7 @@ $ npm install --save k8s-client
 * Get objects by label selectors.
 * Scale replication controllers.
 * Delete replication controllers with all pods.
+* Supports token-based and client certificate authentication.
 
 ### Get objects
 To get objects, create a client object and use a collections' get method.
@@ -46,6 +47,55 @@ client.pods.get('pod id', function(err, pod){
 // get pods by label selector
 client.pods.getBySelector({ app: 'hello-world' }, function(err, pods){
   console.log(pods);
+});
+```
+
+### Authentication
+To authenticate into a Kubernetes API, use the token or client certificate options.
+
+*Token Authentication:*
+```
+var Client = require('k8s-client');
+
+var client = new Client({
+  host: '127.0.0.1:8080',
+  token: 'thisismytoken'
+  });
+
+...
+```
+
+*Certificate Authentication:*
+```
+var Client = require('k8s-client');
+
+var client = new Client({
+  host: '127.0.0.1:8080',
+  clientKey: fs.readFileSync('tls/k8s-client.key'),
+  clientCert: fs.readFileSync('tls/k8s-client.crt'),
+  caCert: fs.readFileSync('tls/k8s-ca.crt')
+  });
+
+...
+```
+
+### Creating Objects
+To create an object user, the collection's `create` method.
+
+```
+...
+
+var RC_MANIFEST = {
+  kind: 'ReplicationController',
+  apiVersion: 'v1',
+  metadata: {
+    name: 'nginx-rc',
+    ...
+  }
+}
+
+client.replicationControllers.create(RC_MANIFEST, function(err, rc){
+  console.log('created nginx replication controller', rc)
 });
 ```
 
