@@ -131,7 +131,12 @@ client.pod.delete('my-pod', function(err, pod){
   });
 
 // delete a replication controller and it's pods
-client.replicationControllers.deleteWithPods('my-rc', function(err, rc){
+client.replicationControllers.delete('my-rc', function(err, rc){
   console.log('deleted rc with pods', rc);
+});
+
+// delete all replication controllers for app: test
+client.replicationControllers.deleteBySelector({ app: 'test' }, function(err, rcs){
+  console.log('deleted all test rcs', rcs);
 });
 ```

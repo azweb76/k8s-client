@@ -33,6 +33,12 @@ var client = new K8sClient({
 //   }
 // });
 
-client.pods.createAndWait(manifest, (err, pod) => {
-  console.log(err, pod);
+client.pods.deleteBySelector({
+  app: 'nginx-test'
+}, (err, pods) => {
+  console.log(err, pods);
 });
+
+// client.pods.createAndWait(manifest, (err, pod) => {
+//   console.log(err, pod);
+// });
