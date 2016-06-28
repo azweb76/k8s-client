@@ -58,7 +58,8 @@ To authenticate into a Kubernetes API, use the token or client certificate optio
 var Client = require('k8s-client');
 
 var client = new Client({
-  host: '127.0.0.1:8080',
+  protocol: 'https',
+  host: '127.0.0.1:443',
   token: 'thisismytoken'
   });
 
@@ -70,7 +71,8 @@ var client = new Client({
 var Client = require('k8s-client');
 
 var client = new Client({
-  host: '127.0.0.1:8080',
+  protocol: 'https',
+  host: '127.0.0.1:443',
   clientKey: fs.readFileSync('tls/k8s-client.key'),
   clientCert: fs.readFileSync('tls/k8s-client.crt'),
   caCert: fs.readFileSync('tls/k8s-ca.crt')
