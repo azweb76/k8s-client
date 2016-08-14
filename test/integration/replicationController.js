@@ -1,6 +1,7 @@
 'use strict'
 
 const K8sClient = require('../../');
+const fs = require('fs');
 
 var manifest = {
   id: "nginxController",
@@ -36,7 +37,10 @@ var manifest = {
 };
 
 var client = new K8sClient({
-  host: process.env.KUBE_HOST || '127.0.0.1:8080'
+  url: process.env.KUBE_URL || 'http://127.0.0.1:8080',
+  clientKey: fs.readFileSync(process.env.KUBE_CLIENT_KEY || '/etc/pki/tls/private/k8s-client.key'),
+  clientCert: fs.readFileSync(process.env.KUBE_CLIENT_CERT || '/etc/pki/tls/certs/k8s-client.crt'),
+  caCert: fs.readFileSync(process.env.KUBE_CA_CERT || '/etc/pki/tls/certs/ca.crt')
 });
 
 // client.replicationControllers.get(manifest.metadata.name, (err, rc) => {
@@ -48,7 +52,7 @@ var client = new K8sClient({
 //   }
 // });
 
-client.pods.createAndWait(manifest, (err, rc) => {
+client.pods.get((err, rc) => {
   console.log(err, rc);
 });
 
