@@ -51,7 +51,7 @@ client.pods.getBySelector({ app: 'hello-world' }, function(err, pods){
 ```
 
 ### Authentication
-To authenticate into a Kubernetes API, use the token or client certificate options.
+To authenticate into a Kubernetes API, use the token, client certificate, or username/password options.
 
 *Token Authentication:*
 ```
@@ -76,6 +76,19 @@ var client = new Client({
   clientKey: fs.readFileSync('tls/k8s-client.key'),
   clientCert: fs.readFileSync('tls/k8s-client.crt'),
   caCert: fs.readFileSync('tls/k8s-ca.crt')
+  });
+
+...
+```
+
+*Basic Authentication:*
+```
+var Client = require('k8s-client');
+
+var client = new Client({
+  url: 'https://127.0.0.1:443',
+  username: 'jdoe',
+  password: '1234'
   });
 
 ...
