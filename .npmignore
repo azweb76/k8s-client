@@ -2,3 +2,5 @@
 .git
 *.swp
 test
+docs
+README.md

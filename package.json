@@ -1,6 +1,6 @@
 {
   "name": "k8s-client",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Kubernetes client for Node.js",
   "main": "index.js",
   "repository": {
@@ -8,7 +8,7 @@
     "url": "git://github.com/azweb76/k8s-client.git"
   },
   "publishConfig": {
-    "registry": "http://registry.npmjs.com"
+    "registry": "https://registry.npmjs.com"
   },
   "keywords": [
     "kubernetes",
